@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "in.fronts.teabyii.reador"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    // Litho
+    implementation 'com.facebook.litho:litho-core:0.10.0'
+    implementation 'com.facebook.litho:litho-widget:0.10.0'
+    compileOnly 'com.facebook.litho:litho-annotations:0.10.0'
+
+    kapt 'com.facebook.litho:litho-processor:0.10.0'
+
+    // SoLoader
+    implementation 'com.facebook.soloader:soloader:0.2.0'
+
+    // Optional
+    // For debugging
+    debugImplementation 'com.facebook.litho:litho-stetho:0.10.0'
+
+    // For integration with Fresco
+    implementation 'com.facebook.litho:litho-fresco:0.10.0'
+
+    // For testing
+    testImplementation 'com.facebook.litho:litho-testing:0.10.0'
+
+    // Sections
+    implementation 'com.facebook.litho:litho-sections-core:0.10.0'
+    implementation 'com.facebook.litho:litho-sections-widget:0.10.0'
+    compileOnly 'com.facebook.litho:litho-sections-annotations:0.10.0'
+
+    kapt 'com.facebook.litho:litho-sections-processor:0.10.0'
+
+    // NOTE: Do not place your application dependencies here; they belong
+    // in the individual module build.gradle files
+}
